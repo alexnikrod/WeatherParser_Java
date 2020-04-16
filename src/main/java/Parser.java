@@ -30,10 +30,10 @@ public class Parser {
         int iterationCount = 4;
         if (index == 0) {
             Element valueLn = values.get(3);
-            boolean isMorning = valueLn.text().contains("Утро");
-            boolean isDay = valueLn.text().contains("День");
-            boolean isEvening = valueLn.text().contains("Вечер");
-            boolean isNight = valueLn.text().contains("Ночь");
+            boolean isMorning = valueLn.text().contains("Morning");
+            boolean isDay = valueLn.text().contains("Day");
+            boolean isEvening = valueLn.text().contains("Evening");
+            boolean isNight = valueLn.text().contains("Night");
             // switch needs here
             if (isMorning) {
                 iterationCount = 3;
@@ -72,7 +72,7 @@ public class Parser {
         for (Element name : names) {
             String dateString = name.select("th[id=dt]").text();
             String date = getDataFromString(dateString);
-            System.out.println(date + "     Явление       Температура       Давление        Влажность       Ветер");
+            System.out.println(date + "     Visibility       Temperature       Pressure        Humidity       Wind");
             int iterationCount = printPartValues(values, index);
             index = index + iterationCount;
         }
